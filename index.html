@@ -383,8 +383,8 @@ nav {
   transition:border-left-color 0.3s, background 0.3s, transform 0.3s;
   text-decoration:none; display:block; color:inherit;
 }
-a.pub-item { cursor:pointer; }
 .pub-item:hover { border-left-color:var(--seafoam); background:rgba(10,32,53,0.8); transform:translateX(4px); }
+.pub-item[role="link"] { cursor:pointer; }
 .pub-links { display:none; }
 .pub-num  { display:none; }
 .pub-title { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:700; color:var(--white); line-height:1.4; margin-bottom:0.35rem; }
@@ -641,7 +641,7 @@ footer { position:relative; z-index:10; border-top:1px solid var(--border); padd
   .footer-links a { font-size:0.38rem; }
   
   /* Pub items */
-  .pub-item, a.pub-item { padding:1rem 1.2rem; }
+  .pub-item { padding:1rem 1.2rem; }
   .pub-title { font-size:0.9rem; }
   
   /* Member cards */
@@ -886,61 +886,61 @@ footer { position:relative; z-index:10; border-top:1px solid var(--border); padd
     <div class="pub-panel active" id="panel-pubs">
       <div class="pub-list">
 
-        <a class="pub-item" href="https://doi.org/10.1016/j.jsames.2026.105999" target="_blank">
+        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Basin-scale sequence stratigraphy of the Vivian Formation (Marañón Basin, Peru)" onclick="window.open('https://doi.org/10.1016/j.jsames.2026.105999','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1016/j.jsames.2026.105999','_blank')">
           <div class="pub-num">Lopez-Gamundi &amp; Lopez-Gamundi 2026</div>
           <div class="pub-title">Basin-scale sequence stratigraphy of the Vivian Formation (Marañón Basin, Peru)</div>
           <div class="pub-authors">Lopez-Gamundi, O. and <strong>Lopez-Gamundi, C.</strong></div>
           <div class="pub-journal">Journal of South American Earth Sciences, 174, 105999 (2026)</div>
           <div class="pub-links"><a href="https://doi.org/10.1016/j.jsames.2026.105999" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </a>
+        </div>
 
-        <a class="pub-item" href="https://doi.org/10.1144/esss2024-002" target="_blank">
+        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Perspectives on developing a diverse, knowledgeable and inclusive scientific community in the shifting landscape of US scientific ocean drilling" onclick="window.open('https://doi.org/10.1144/esss2024-002','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1144/esss2024-002','_blank')">
           <div class="pub-num">Hupp et al. 2025</div>
           <div class="pub-title">Perspectives on developing a diverse, knowledgeable and inclusive scientific community in the shifting landscape of US scientific ocean drilling</div>
           <div class="pub-authors">Hupp, B.N., Hashim, M.S., Bryant, R., Kinsley, C.W., Villa, A., et al. (incl. <strong>Lopez-Gamundi, C.</strong>)</div>
           <div class="pub-journal">Earth Science, Systems and Society, 5 (2025)</div>
           <div class="pub-links"><a href="https://doi.org/10.1144/esss2024-002" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </a>
+        </div>
 
-        <a class="pub-item" href="https://doi.org/10.1130/G52850.1" target="_blank">
+        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: The carbonate sediment budget of Great Bahama Bank – Earth's largest modern platform" onclick="window.open('https://doi.org/10.1130/G52850.1','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1130/G52850.1','_blank')">
           <div class="pub-num">Lopez-Gamundi et al. 2025</div>
           <div class="pub-title">The carbonate sediment budget of Great Bahama Bank – Earth's largest modern platform</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong>, Barnes B.B., Betzler C., Harris P.M., Oehlert A.M., Eberli G.P., and Purkis S.J.</div>
           <div class="pub-journal">Geology, 53, 748–752 (2025)</div>
           <div class="pub-links"><a href="https://doi.org/10.1130/G52850.1" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </a>
+        </div>
 
-        <a class="pub-item" href="https://doi.org/10.1016/j.jsames.2024.105004" target="_blank">
+        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: El Paso Formation: A key unit for the correlation of the Carboniferous glaciation in the Calingasta-Uspallata basin of western Argentina" onclick="window.open('https://doi.org/10.1016/j.jsames.2024.105004','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1016/j.jsames.2024.105004','_blank')">
           <div class="pub-num">Lopez-Gamundi et al. 2024</div>
           <div class="pub-title">El Paso Formation: A key unit for the correlation of the Carboniferous glaciation in the Calingasta-Uspallata basin of western Argentina</div>
           <div class="pub-authors">Lopez-Gamundi, O., Cisterna, G.A., Sterren, A.F., and <strong>Lopez-Gamundi, C.</strong></div>
           <div class="pub-journal">Journal of South American Earth Sciences, 143, 105004 (2024)</div>
           <div class="pub-links"><a href="https://doi.org/10.1016/j.jsames.2024.105004" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </a>
+        </div>
 
-        <a class="pub-item" href="https://doi.org/10.1111/sed.13151" target="_blank">
+        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Spatial, seasonal, and climatic drivers of suspended sediment atop Great Bahama Bank" onclick="window.open('https://doi.org/10.1111/sed.13151','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1111/sed.13151','_blank')">
           <div class="pub-num">Lopez-Gamundi et al. 2023</div>
           <div class="pub-title">Spatial, seasonal, and climatic drivers of suspended sediment atop Great Bahama Bank</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong>, Barnes B.B., Bakker A.C., Harris P.M., Eberli G., and Purkis S.J.</div>
           <div class="pub-journal">Sedimentology, 71, 769–792 (2023)</div>
           <div class="pub-links"><a href="https://doi.org/10.1111/sed.13151" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </a>
+        </div>
 
-        <a class="pub-item" href="https://doi.org/10.1111/sed.13020" target="_blank">
+        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Simulating sedimentation on the Great Bahama Bank – Sources, sinks and storms" onclick="window.open('https://doi.org/10.1111/sed.13020','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1111/sed.13020','_blank')">
           <div class="pub-num">Lopez-Gamundi et al. 2022</div>
           <div class="pub-title">Simulating sedimentation on the Great Bahama Bank – Sources, sinks and storms</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong>, Dobbelaere T., Hanert E., Harris P.M., Eberli G., and Purkis S.J.</div>
           <div class="pub-journal">Sedimentology, 69, 2693–2714 (2022) <span class="pub-badge">Editor's Pick 2022</span></div>
           <div class="pub-links"><a href="https://doi.org/10.1111/sed.13020" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </a>
+        </div>
 
-        <a class="pub-item" href="https://doi.org/10.1306/13622123M1173531" target="_blank">
+        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Exhumation of a proximal foredeep and associated wedge-top basin evidenced by porosity versus depth trends: The Upper Cretaceous Vivian sandstones in Northwestern Marañón and Santiago basins (Peru)" onclick="window.open('https://doi.org/10.1306/13622123M1173531','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1306/13622123M1173531','_blank')">
           <div class="pub-num">Lopez-Gamundi &amp; Lopez-Gamundi 2018</div>
           <div class="pub-title">Exhumation of a proximal foredeep and associated wedge-top basin evidenced by porosity versus depth trends: The Upper Cretaceous Vivian sandstones in Northwestern Marañón and Santiago basins (Peru)</div>
           <div class="pub-authors">Lopez-Gamundi, O. and <strong>Lopez-Gamundi, C.</strong></div>
           <div class="pub-journal">AAPG Memoir 117: Petroleum Basins and Hydrocarbon Potential of the Andes of Peru and Bolivia, pp. 251–269 (2018)</div>
           <div class="pub-links"><a href="https://doi.org/10.1306/13622123M1173531" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </a>
+        </div>
 
       </div>
     </div>
@@ -977,13 +977,13 @@ footer { position:relative; z-index:10; border-top:1px solid var(--border); padd
           <div class="pub-journal">SEPM International Sedimentary Geosciences Congress, Flagstaff, Arizona. May 5–8, 2024</div>
         </div>
 
-        <a class="pub-item" href="https://doi.org/10.2110/sepmscn.057" target="_blank">
+        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Deciphering the drivers of suspended sediment – Great Bahama Bank" onclick="window.open('https://doi.org/10.2110/sepmscn.057','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.2110/sepmscn.057','_blank')">
           <div class="pub-num">SEPM Short Course 2023</div>
           <div class="pub-title">Deciphering the drivers of suspended sediment – Great Bahama Bank</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong>, Barnes B.B., Bakker A.C., Harris P.M., Eberli G., and Purkis S.J.</div>
           <div class="pub-journal">In: Advances in the Understanding and Interpretation of Carbonates, SEPM Short Course 57 (2023)</div>
           <div class="pub-links"><a href="https://doi.org/10.2110/sepmscn.057" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </a>
+        </div>
 
         <div class="pub-item">
           <div class="pub-num">IMS 2023 · Dubrovnik</div>
@@ -1055,21 +1055,21 @@ footer { position:relative; z-index:10; border-top:1px solid var(--border); padd
     <div class="pub-panel" id="panel-thesis">
       <div class="pub-list">
 
-        <a class="pub-item" href="https://scholarship.miami.edu/esploro/outputs/991032024814502976" target="_blank">
+        <div class="pub-item" role="link" tabindex="0" aria-label="Repository: The Sediment Budget of the Great Bahama Bank — Insights from Simulations, Satellites, and Seismic" onclick="window.open('https://scholarship.miami.edu/esploro/outputs/991032024814502976','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://scholarship.miami.edu/esploro/outputs/991032024814502976','_blank')">
           <div class="pub-num">PhD Dissertation · University of Miami 2024</div>
           <div class="pub-title">The Sediment Budget of the Great Bahama Bank — Insights from Simulations, Satellites, and Seismic</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong></div>
           <div class="pub-journal">University of Miami, 108 pp. (2024)</div>
           <div class="pub-links"><a href="https://scholarship.miami.edu/esploro/outputs/991032024814502976" target="_blank" class="pub-link pub-link-doi">Repository</a></div>
-        </a>
+        </div>
 
-        <a class="pub-item" href="https://shareok.org/handle/11244/319736" target="_blank">
+        <div class="pub-item" role="link" tabindex="0" aria-label="Repository: Integrated Geochemistry and Sedimentology of the Wolfcamp B3 and B2 Intervals, Midland Basin, TX" onclick="window.open('https://shareok.org/handle/11244/319736','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://shareok.org/handle/11244/319736','_blank')">
           <div class="pub-num">MS Thesis · University of Oklahoma 2019</div>
           <div class="pub-title">Integrated Geochemistry and Sedimentology of the Wolfcamp B3 and B2 Intervals, Midland Basin, TX</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong></div>
           <div class="pub-journal">The University of Oklahoma, 345 pp. (2019)</div>
           <div class="pub-links"><a href="https://shareok.org/handle/11244/319736" target="_blank" class="pub-link pub-link-doi">Repository</a></div>
-        </a>
+        </div>
 
       </div>
     </div>
