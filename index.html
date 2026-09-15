@@ -8,11 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ════════════════════════════════════════════════════════
-   HOW TO SWAP BACKGROUND IMAGES
+   SWAP OUT BACKGROUND IMAGES
    ════════════════════════════════════════════════════════
-   There are 5 places to put YOUR OWN images:
+   5 places add images:
 
-   1. HERO ROTATING SLIDESHOW (home page)
+   1. ROTATING SLIDESHOW (home page)
       → Slides are defined in two places — the HTML .slide divs AND the JS `slides` array
       → To add a new image slide: copy a .slide div, set background-image to your file,
         add a matching entry in the JS slides[] array with hud[], credit, and duration
@@ -274,7 +274,7 @@ nav {
 .img-credit {
   position:absolute; bottom:1.2rem; right:2rem; z-index:10;
   font-family:'Space Mono',monospace; font-size:0.5rem; letter-spacing:1px;
-  color:var(--muted); text-align:right;
+  color:rgba(240,248,255,0.3); text-align:right;
   transition: opacity 0.5s;
 }
 
@@ -284,7 +284,7 @@ nav {
 .badge-dot  { width:6px; height:6px; background:var(--seafoam); border-radius:50%; box-shadow:0 0 8px var(--seafoam); animation:pulse 2s infinite; }
 .badge-text { font-family:'Space Mono',monospace; font-size:0.58rem; letter-spacing:2px; text-transform:uppercase; color:var(--seafoam); }
 
-.hero-name { font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:0.55rem; opacity:0; animation:fadeUp 0.8s 0.45s forwards; }
+.hero-name { font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:3px; text-transform:uppercase; color:rgba(240,248,255,0.42); margin-bottom:0.55rem; opacity:0; animation:fadeUp 0.8s 0.45s forwards; }
 
 .hero-title { font-family:'Cormorant Garamond',serif; font-weight:700; font-size:clamp(3.5rem,7.5vw,7rem); line-height:0.92; margin-bottom:1rem; opacity:0; animation:fadeUp 0.8s 0.6s forwards; }
 .hero-title .t1 { display:block; color:var(--white); }
@@ -310,7 +310,7 @@ nav {
 .btn-ghost   { background:transparent; border:1px solid rgba(240,248,255,0.22); color:var(--white); }
 .btn-ghost:hover { border-color:var(--seafoam); color:var(--seafoam); }
 
-.img-credit { position:absolute; bottom:1.2rem; right:2rem; z-index:10; font-family:'Space Mono',monospace; font-size:0.5rem; letter-spacing:1px; color:var(--muted); text-align:right; }
+.img-credit { position:absolute; bottom:1.2rem; right:2rem; z-index:10; font-family:'Space Mono',monospace; font-size:0.5rem; letter-spacing:1px; color:rgba(240,248,255,0.28); text-align:right; }
 
 /* ── SECTION SHELL ── */
 .section { position:relative; z-index:10; padding:7rem 5rem; display:none; }
@@ -383,8 +383,8 @@ nav {
   transition:border-left-color 0.3s, background 0.3s, transform 0.3s;
   text-decoration:none; display:block; color:inherit;
 }
+a.pub-item { cursor:pointer; }
 .pub-item:hover { border-left-color:var(--seafoam); background:rgba(10,32,53,0.8); transform:translateX(4px); }
-.pub-item[role="link"] { cursor:pointer; }
 .pub-links { display:none; }
 .pub-num  { display:none; }
 .pub-title { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:700; color:var(--white); line-height:1.4; margin-bottom:0.35rem; }
@@ -400,6 +400,10 @@ nav {
    TEAM / LAB MEMBERS
 ══════════════════════════════════════ */
 .team-intro { max-width:650px; font-size:0.98rem; font-weight:300; color:var(--muted); line-height:1.75; margin-bottom:3rem; }
+.team-subhead { margin:3.5rem 0 2rem; }
+.team-subhead .section-eyebrow { margin-bottom:0.4rem; }
+.team-subtitle { font-family:'Cormorant Garamond',serif; font-size:1.85rem; font-weight:700; color:var(--white); line-height:1.1; margin:0; }
+.team-subtitle em { color:var(--seafoam); font-style:italic; }
 .team-grid  { display:grid; grid-template-columns:repeat(auto-fill,minmax(275px,1fr)); gap:2rem; margin-bottom:3rem; }
 
 .member-card {
@@ -410,7 +414,7 @@ nav {
 
 .member-photo-wrap {
   height:280px; position:relative; overflow:hidden;
-  background:linear-gradient(135deg,#0a2035,#0c3550);
+  background:radial-gradient(circle at 50% 30%, rgba(140,195,235,0.30) 0%, rgba(90,150,200,0.10) 44%, transparent 72%), linear-gradient(155deg,#274f74 0%,#16405c 52%,#0d3145 100%);
 }
 .member-photo {
   width:100%; height:100%; object-fit:cover; object-position:center top;
@@ -418,6 +422,7 @@ nav {
   transition:transform 0.5s cubic-bezier(0.23,1,0.32,1);
 }
 .member-card:hover .member-photo { transform:scale(1.04); }
+.member-photo.cutout { object-fit:contain; object-position:center bottom; filter:none; }
 .member-photo-overlay {
   position:absolute; inset:0;
   background:linear-gradient(to top, rgba(10,32,53,0.85) 0%, rgba(10,32,53,0.2) 50%, transparent 100%);
@@ -433,11 +438,14 @@ nav {
   padding:0.22rem 0.7rem; backdrop-filter:blur(8px);
   font-family:'Space Mono',monospace; font-size:0.5rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--seafoam);
 }
+.member-role-badge.badge-right { left:auto; right:14px; }
 
 .member-body { padding:1.5rem 1.75rem; }
 .member-name { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:700; color:var(--white); margin-bottom:0.2rem; }
 .member-title { font-family:'Space Mono',monospace; font-size:0.58rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:0.8rem; }
 .member-bio { font-size:0.85rem; font-weight:300; color:var(--muted); line-height:1.65; margin-bottom:1.1rem; }
+.member-bio a { color:var(--seafoam); text-decoration:none; border-bottom:1px solid rgba(45,232,216,0.35); transition:border-color 0.25s; }
+.member-bio a:hover { border-color:var(--seafoam); }
 
 .member-tags { display:flex; flex-wrap:wrap; gap:0.35rem; margin-bottom:1.1rem; }
 .member-tag  { background:rgba(45,232,216,0.07); border:1px solid rgba(45,232,216,0.15); color:rgba(240,248,255,0.55); padding:0.18rem 0.55rem; border-radius:100px; font-family:'Space Mono',monospace; font-size:0.52rem; letter-spacing:1px; text-transform:uppercase; }
@@ -641,7 +649,7 @@ footer { position:relative; z-index:10; border-top:1px solid var(--border); padd
   .footer-links a { font-size:0.38rem; }
   
   /* Pub items */
-  .pub-item { padding:1rem 1.2rem; }
+  .pub-item, a.pub-item { padding:1rem 1.2rem; }
   .pub-title { font-size:0.9rem; }
   
   /* Member cards */
@@ -886,61 +894,61 @@ footer { position:relative; z-index:10; border-top:1px solid var(--border); padd
     <div class="pub-panel active" id="panel-pubs">
       <div class="pub-list">
 
-        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Basin-scale sequence stratigraphy of the Vivian Formation (Marañón Basin, Peru)" onclick="window.open('https://doi.org/10.1016/j.jsames.2026.105999','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1016/j.jsames.2026.105999','_blank')">
+        <a class="pub-item" href="https://doi.org/10.1016/j.jsames.2026.105999" target="_blank">
           <div class="pub-num">Lopez-Gamundi &amp; Lopez-Gamundi 2026</div>
           <div class="pub-title">Basin-scale sequence stratigraphy of the Vivian Formation (Marañón Basin, Peru)</div>
           <div class="pub-authors">Lopez-Gamundi, O. and <strong>Lopez-Gamundi, C.</strong></div>
           <div class="pub-journal">Journal of South American Earth Sciences, 174, 105999 (2026)</div>
           <div class="pub-links"><a href="https://doi.org/10.1016/j.jsames.2026.105999" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </div>
+        </a>
 
-        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Perspectives on developing a diverse, knowledgeable and inclusive scientific community in the shifting landscape of US scientific ocean drilling" onclick="window.open('https://doi.org/10.1144/esss2024-002','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1144/esss2024-002','_blank')">
+        <a class="pub-item" href="https://doi.org/10.1144/esss2024-002" target="_blank">
           <div class="pub-num">Hupp et al. 2025</div>
           <div class="pub-title">Perspectives on developing a diverse, knowledgeable and inclusive scientific community in the shifting landscape of US scientific ocean drilling</div>
           <div class="pub-authors">Hupp, B.N., Hashim, M.S., Bryant, R., Kinsley, C.W., Villa, A., et al. (incl. <strong>Lopez-Gamundi, C.</strong>)</div>
           <div class="pub-journal">Earth Science, Systems and Society, 5 (2025)</div>
           <div class="pub-links"><a href="https://doi.org/10.1144/esss2024-002" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </div>
+        </a>
 
-        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: The carbonate sediment budget of Great Bahama Bank – Earth's largest modern platform" onclick="window.open('https://doi.org/10.1130/G52850.1','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1130/G52850.1','_blank')">
+        <a class="pub-item" href="https://doi.org/10.1130/G52850.1" target="_blank">
           <div class="pub-num">Lopez-Gamundi et al. 2025</div>
           <div class="pub-title">The carbonate sediment budget of Great Bahama Bank – Earth's largest modern platform</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong>, Barnes B.B., Betzler C., Harris P.M., Oehlert A.M., Eberli G.P., and Purkis S.J.</div>
           <div class="pub-journal">Geology, 53, 748–752 (2025)</div>
           <div class="pub-links"><a href="https://doi.org/10.1130/G52850.1" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </div>
+        </a>
 
-        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: El Paso Formation: A key unit for the correlation of the Carboniferous glaciation in the Calingasta-Uspallata basin of western Argentina" onclick="window.open('https://doi.org/10.1016/j.jsames.2024.105004','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1016/j.jsames.2024.105004','_blank')">
+        <a class="pub-item" href="https://doi.org/10.1016/j.jsames.2024.105004" target="_blank">
           <div class="pub-num">Lopez-Gamundi et al. 2024</div>
           <div class="pub-title">El Paso Formation: A key unit for the correlation of the Carboniferous glaciation in the Calingasta-Uspallata basin of western Argentina</div>
           <div class="pub-authors">Lopez-Gamundi, O., Cisterna, G.A., Sterren, A.F., and <strong>Lopez-Gamundi, C.</strong></div>
           <div class="pub-journal">Journal of South American Earth Sciences, 143, 105004 (2024)</div>
           <div class="pub-links"><a href="https://doi.org/10.1016/j.jsames.2024.105004" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </div>
+        </a>
 
-        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Spatial, seasonal, and climatic drivers of suspended sediment atop Great Bahama Bank" onclick="window.open('https://doi.org/10.1111/sed.13151','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1111/sed.13151','_blank')">
+        <a class="pub-item" href="https://doi.org/10.1111/sed.13151" target="_blank">
           <div class="pub-num">Lopez-Gamundi et al. 2023</div>
           <div class="pub-title">Spatial, seasonal, and climatic drivers of suspended sediment atop Great Bahama Bank</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong>, Barnes B.B., Bakker A.C., Harris P.M., Eberli G., and Purkis S.J.</div>
           <div class="pub-journal">Sedimentology, 71, 769–792 (2023)</div>
           <div class="pub-links"><a href="https://doi.org/10.1111/sed.13151" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </div>
+        </a>
 
-        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Simulating sedimentation on the Great Bahama Bank – Sources, sinks and storms" onclick="window.open('https://doi.org/10.1111/sed.13020','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1111/sed.13020','_blank')">
+        <a class="pub-item" href="https://doi.org/10.1111/sed.13020" target="_blank">
           <div class="pub-num">Lopez-Gamundi et al. 2022</div>
           <div class="pub-title">Simulating sedimentation on the Great Bahama Bank – Sources, sinks and storms</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong>, Dobbelaere T., Hanert E., Harris P.M., Eberli G., and Purkis S.J.</div>
           <div class="pub-journal">Sedimentology, 69, 2693–2714 (2022) <span class="pub-badge">Editor's Pick 2022</span></div>
           <div class="pub-links"><a href="https://doi.org/10.1111/sed.13020" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </div>
+        </a>
 
-        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Exhumation of a proximal foredeep and associated wedge-top basin evidenced by porosity versus depth trends: The Upper Cretaceous Vivian sandstones in Northwestern Marañón and Santiago basins (Peru)" onclick="window.open('https://doi.org/10.1306/13622123M1173531','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.1306/13622123M1173531','_blank')">
+        <a class="pub-item" href="https://doi.org/10.1306/13622123M1173531" target="_blank">
           <div class="pub-num">Lopez-Gamundi &amp; Lopez-Gamundi 2018</div>
           <div class="pub-title">Exhumation of a proximal foredeep and associated wedge-top basin evidenced by porosity versus depth trends: The Upper Cretaceous Vivian sandstones in Northwestern Marañón and Santiago basins (Peru)</div>
           <div class="pub-authors">Lopez-Gamundi, O. and <strong>Lopez-Gamundi, C.</strong></div>
           <div class="pub-journal">AAPG Memoir 117: Petroleum Basins and Hydrocarbon Potential of the Andes of Peru and Bolivia, pp. 251–269 (2018)</div>
           <div class="pub-links"><a href="https://doi.org/10.1306/13622123M1173531" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </div>
+        </a>
 
       </div>
     </div>
@@ -977,13 +985,13 @@ footer { position:relative; z-index:10; border-top:1px solid var(--border); padd
           <div class="pub-journal">SEPM International Sedimentary Geosciences Congress, Flagstaff, Arizona. May 5–8, 2024</div>
         </div>
 
-        <div class="pub-item" role="link" tabindex="0" aria-label="DOI: Deciphering the drivers of suspended sediment – Great Bahama Bank" onclick="window.open('https://doi.org/10.2110/sepmscn.057','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://doi.org/10.2110/sepmscn.057','_blank')">
+        <a class="pub-item" href="https://doi.org/10.2110/sepmscn.057" target="_blank">
           <div class="pub-num">SEPM Short Course 2023</div>
           <div class="pub-title">Deciphering the drivers of suspended sediment – Great Bahama Bank</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong>, Barnes B.B., Bakker A.C., Harris P.M., Eberli G., and Purkis S.J.</div>
           <div class="pub-journal">In: Advances in the Understanding and Interpretation of Carbonates, SEPM Short Course 57 (2023)</div>
           <div class="pub-links"><a href="https://doi.org/10.2110/sepmscn.057" target="_blank" class="pub-link pub-link-doi">DOI</a></div>
-        </div>
+        </a>
 
         <div class="pub-item">
           <div class="pub-num">IMS 2023 · Dubrovnik</div>
@@ -1055,21 +1063,21 @@ footer { position:relative; z-index:10; border-top:1px solid var(--border); padd
     <div class="pub-panel" id="panel-thesis">
       <div class="pub-list">
 
-        <div class="pub-item" role="link" tabindex="0" aria-label="Repository: The Sediment Budget of the Great Bahama Bank — Insights from Simulations, Satellites, and Seismic" onclick="window.open('https://scholarship.miami.edu/esploro/outputs/991032024814502976','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://scholarship.miami.edu/esploro/outputs/991032024814502976','_blank')">
+        <a class="pub-item" href="https://scholarship.miami.edu/esploro/outputs/991032024814502976" target="_blank">
           <div class="pub-num">PhD Dissertation · University of Miami 2024</div>
           <div class="pub-title">The Sediment Budget of the Great Bahama Bank — Insights from Simulations, Satellites, and Seismic</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong></div>
           <div class="pub-journal">University of Miami, 108 pp. (2024)</div>
           <div class="pub-links"><a href="https://scholarship.miami.edu/esploro/outputs/991032024814502976" target="_blank" class="pub-link pub-link-doi">Repository</a></div>
-        </div>
+        </a>
 
-        <div class="pub-item" role="link" tabindex="0" aria-label="Repository: Integrated Geochemistry and Sedimentology of the Wolfcamp B3 and B2 Intervals, Midland Basin, TX" onclick="window.open('https://shareok.org/handle/11244/319736','_blank')" onkeydown="if(event.key==='Enter'||event.key===' ')window.open('https://shareok.org/handle/11244/319736','_blank')">
+        <a class="pub-item" href="https://shareok.org/handle/11244/319736" target="_blank">
           <div class="pub-num">MS Thesis · University of Oklahoma 2019</div>
           <div class="pub-title">Integrated Geochemistry and Sedimentology of the Wolfcamp B3 and B2 Intervals, Midland Basin, TX</div>
           <div class="pub-authors"><strong>Lopez-Gamundi, C.</strong></div>
           <div class="pub-journal">The University of Oklahoma, 345 pp. (2019)</div>
           <div class="pub-links"><a href="https://shareok.org/handle/11244/319736" target="_blank" class="pub-link pub-link-doi">Repository</a></div>
-        </div>
+        </a>
 
       </div>
     </div>
@@ -1101,7 +1109,7 @@ footer { position:relative; z-index:10; border-top:1px solid var(--border); padd
           <div class="member-name">Cecilia Lopez-Gamundi</div>
           <div class="member-title">Assistant Professor<br>NASA/Caltech JPL Affiliate Scientist</div>
           <p class="member-bio">
-            Coastal and carbonate geoscientist specializing in hydrodynamic modeling, satellite-based remote sensing, and forward stratigraphic simulation. Ph.D. from the University of Miami; previously at JPL/NASA Caltech and Chevron.
+            Coastal and carbonate geoscientist specializing in hydrodynamic modeling, satellite-based remote sensing, and forward stratigraphic simulation. Ph.D. from the University of Miami; previously at JPL (NASA / Caltech) and Chevron.
           </p>
           <div class="member-links">
             <a href="CLG_CV.pdf" target="_blank" class="member-link member-link-cv">↓ CV</a>
@@ -1114,48 +1122,67 @@ footer { position:relative; z-index:10; border-top:1px solid var(--border); padd
         </div>
       </div>
 
-      <!-- PLACEHOLDER STUDENT 1 -->
+      <!-- REMI KURITA -->
       <div class="member-card">
         <div class="member-photo-wrap">
-          <div class="member-photo-placeholder">
-            <svg width="120" height="120" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="40" cy="28" r="14" fill="rgba(45,232,216,0.15)" stroke="rgba(45,232,216,0.3)" stroke-width="1.5"/>
-              <path d="M12 72c0-15.5 12.5-28 28-28s28 12.5 28 28" fill="rgba(45,232,216,0.15)" stroke="rgba(45,232,216,0.3)" stroke-width="1.5"/>
-            </svg>
-          </div>
+          <img class="member-photo cutout" src="https://i.postimg.cc/qvSLGBNY/RK-nb.png" alt="Remi Kurita" onerror="this.style.display='none'">
           <div class="member-photo-overlay"></div>
           <span class="member-role-badge">PhD Student</span>
         </div>
         <div class="member-body">
-          <div class="member-name">Your Name Here?</div>
-          <div class="member-title">Ph.D. Student · Starting 2026</div>
-          <p class="member-bio">Seeking a new PhD student to join the team. Please look at our research and reach out if interested.</p>
+          <div class="member-name">Remi Kurita</div>
+          <div class="member-title">Ph.D. Student · Carbonate Sedimentology</div>
+          <p class="member-bio">
+            Carbonate geologist with field experience in Morocco's Central High Atlas (M.S., UT Austin - <a href="https://www.jsg.utexas.edu/martindale/" target="_blank" rel="noopener">Martindale Lab</a>). Focusing on bridging hydrodynamic modeling of the modern and forward stratigraphic modeling of the ancient. Looking to implement syn-depositional carbonate diagenesis in FSMs. Chair of the SEPM Carbonate Research Group.
+          </p>
         </div>
       </div>
 
-      <!-- PLACEHOLDER STUDENT 2 -->
+      <!-- MYA HORN -->
       <div class="member-card">
         <div class="member-photo-wrap">
-          <div class="member-photo-placeholder">
-            <svg width="120" height="120" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="40" cy="28" r="14" fill="rgba(45,232,216,0.15)" stroke="rgba(45,232,216,0.3)" stroke-width="1.5"/>
-              <path d="M12 72c0-15.5 12.5-28 28-28s28 12.5 28 28" fill="rgba(45,232,216,0.15)" stroke="rgba(45,232,216,0.3)" stroke-width="1.5"/>
-            </svg>
-          </div>
+          <img class="member-photo cutout" src="https://i.postimg.cc/7ZdVNP5R/MH-nb.png" alt="Mya Horn" onerror="this.style.display='none'">
           <div class="member-photo-overlay"></div>
-          <span class="member-role-badge">MS Student</span>
+          <span class="member-role-badge">Undergraduate Researcher</span>
         </div>
         <div class="member-body">
-          <div class="member-name">Your Name Here?</div>
-          <div class="member-title">M.S. Student · Starting 2026</div>
-          <p class="member-bio">Seeking a new MS student to join the team. Please look at our research and reach out if interested.</p>
+          <div class="member-name">Mya Horn</div>
+          <div class="member-title">Undergraduate Research Assistant · Biology</div>
+          <p class="member-bio">
+            USC undergrad majoring in biology, minoring in chemistry. Working on satellite data processing and hydrodynamic modeling of modern reefs / platforms in Puerto Rico and the Turks &amp; Caicos.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="team-subhead">
+      <div class="section-eyebrow">Beyond the Lab</div>
+      <h3 class="team-subtitle">Alumni &amp; <em>Collaborators</em></h3>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- LAUREN MUMBY -->
+      <div class="member-card">
+        <div class="member-photo-wrap">
+          <img class="member-photo cutout" src="https://i.postimg.cc/nVG3ttWP/LM-nb.png" alt="Lauren Mumby" onerror="this.style.display='none'">
+          <div class="member-photo-overlay"></div>
+          <span class="member-role-badge badge-right">Former Intern</span>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Lauren Mumby</div>
+          <div class="member-title">Ph.D. Candidate · UC Santa Barbara</div>
+          <p class="member-bio">
+            Former SeaC's Lab intern focused on carbonate grain parameterization for sediment transport modeling. Ph.D. candidate at UC Santa Barbara in the <a href="https://www.ucsb-sedimentology.com" target="_blank" rel="noopener">Simms Lab</a> studying sedimentology and marine geology.
+          </p>
         </div>
       </div>
 
     </div>
 
     <div class="team-join-notice">
-      <p>SeaC's Lab is <strong>actively recruiting</strong> PhD and MS students for Fall 2026. We're looking for motivated scientists with backgrounds in geosciences, oceanography, computer / data science, or related fields with an interest in <strong>computational methods and coastal/carbonate systems</strong>.</p>
+      <p>SeaC's Lab is <strong>actively recruiting</strong> PhD and MS students for Fall 2027. We're looking for motivated scientists with backgrounds in geosciences, oceanography, computer / data science, spatial ecology, civil engineering, or related fields with an interest in <strong>computational methods and coastal / carbonate systems</strong>.</p>
       <button class="btn btn-primary" onclick="showSection('opportunities')">View Open Positions →</button>
     </div>
 
